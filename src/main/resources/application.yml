@@ -1,0 +1,25 @@
+server:
+  port: 3000
+
+spring:
+  datasource:
+    # URL ajustada para a porta 5435 e o banco de dados 'db_orders' conforme o comando docker run
+    url: jdbc:postgresql://localhost:5435/db_orders
+    username: user_jitterbit
+    password: pass_jitterbit
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # O Hibernate criará/atualizará as tabelas automaticamente no banco 'db_orders'
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Configurações do Swagger (OpenAPI)
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
